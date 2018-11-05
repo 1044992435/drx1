@@ -43,9 +43,12 @@
         </button>
         <!-- Brand and toggle get grouped for better mobile display -->
         <!-- 头部信息 -->
+
         <div class="navbar-header">
+
             <a class="navbar-brand glyphicon glyphicon-globe" href="#" id="menu-toggle">
                  商城管理系统  欢迎${login.username}登陆
+
             </a>
         </div>
     </div>

@@ -21,30 +21,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.http.Consts;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.bson.Document;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-
-import org.apache.http.ParseException;
 
 
 /**
@@ -99,13 +78,13 @@ public class MainController {
     @ResponseBody
     public String login(AdminUser adminUser, HttpServletRequest request){
         String flag ="1";
-      AdminUser login= mainService.login(adminUser);
+        System.out.println(adminUser.getPassword());
+      AdminUser login = mainService.login(adminUser);
       if (login!=null){
             if (login.getPassword()!=adminUser.getPassword()){
                 request.getSession().setAttribute("login",login);
                 flag="2";
             }
-
       }
         return "flag";
     }
